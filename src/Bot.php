@@ -11,7 +11,8 @@ class Bot {
 
     function __construct() {
         $this->REQUEST = new Request();
-        $this->executeCommand();
+        $this->sgiphyApi();
+        //$this->executeCommand();
     }
 
     function executeCommand() {
@@ -54,10 +55,11 @@ class Bot {
         } else {
             $mex = 'ok! ';
             $result = json_decode($resp);
+            var_dump($result);
             foreach ($result->data as $GIF){
                 $mex .= $GIF['url'];
             }
-            $this->apiSendMessage($mex);
+            //$this->apiSendMessage(var_dump($result));
         }
     }
 
