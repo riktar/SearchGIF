@@ -10,9 +10,9 @@ class Bot {
     private $STATE = 0;
 
     function __construct() {
-        //$this->REQUEST = new Request();
-        $this->giphyApi();
-        //$this->executeCommand();
+        $this->REQUEST = new Request();
+        $this->executeCommand();
+        //$this->giphyApi();
     }
 
     function executeCommand() {
@@ -52,14 +52,13 @@ class Bot {
         if (curl_errno($ch)) {
             $this->apiSendMessage(curl_errno($ch));
         } else {
-            $mex = 'ok! ';
+            $mex = "ok! \n";
             $result = json_decode($resp);
             //var_dump($result->data);
             foreach ($result->data as $GIF){
-                $mex .= $GIF->url;
+                $mex .= $GIF->url." \n";
             }
-            echo $mex;
-            //$this->apiSendMessage(var_dump($result));
+            $this->apiSendMessage($mex);
         }
     }
 
