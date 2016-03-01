@@ -1,7 +1,7 @@
 <?php
-
-namespace Src;
-
+/*
+ * Init a Bot
+ */
 class Bot {
 
     private $REQUEST;
