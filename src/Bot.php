@@ -9,10 +9,10 @@ class Bot {
     function __construct() {
         $this->REQUEST = new Request();
         var_dump($this->REQUEST);
-        $this->apiSendMessage('Salve!');
+    //        $this->apiSendMessage('Salve!');
     }
 
-    protected function apiSendMessage($text, $params = array()) {
+    function apiSendMessage($text, $params = array()) {
         $params += array(
             'chat_id' => $this->REQUEST->chatId,
             'text' => $text,
