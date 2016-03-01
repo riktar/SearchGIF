@@ -1,6 +1,6 @@
 <?php
 echo 'ciao';
-require __DIR__.'/vendor/autoload.php';
+require_once './src/Bot.php';
 echo 'ciao';
 $bot = new Bot();
 echo 'ciao';
