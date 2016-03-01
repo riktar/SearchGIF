@@ -21,7 +21,7 @@ class Bot {
         } elseif ($this->REQUEST->text === "/stop") {
             $mex = "Arrivederci!";
             $this->apiSendMessage($mex);
-        } elseif (strpos($this->REQUEST->text, "/search") == 0) {
+        } elseif (strpos($this->REQUEST->text, "/search") === 0) {
             $this->apiSendMessage("sto cercando...");
             $this->giphyApi();
         } else {
