@@ -55,9 +55,7 @@ class Bot {
             $mex = "Ok! \n";
             $result = json_decode($resp);
             //var_dump($result->data);
-            foreach ($result->data as $GIF){
-                $mex .= $GIF->url." \n\n";
-            }
+            $mex .= $result->data->url . " \n\n";
             $this->apiSendMessage($mex);
         }
     }
