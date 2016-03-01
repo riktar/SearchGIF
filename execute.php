@@ -1,3 +1,3 @@
 <?php
-include 'vendor/autoload.php';
-new Bot();
+require __DIR__.'/vendor/autoload.php';
+$bot = new Bot();
