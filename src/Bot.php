@@ -45,14 +45,20 @@ class Bot {
         curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=5&offset=0");
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $mex = trim(curl_exec($ch));
+        $resp = trim(curl_exec($ch));
         curl_close($ch);
-        
+
+
         if (curl_errno($ch)) {
             $this->apiSendMessage(curl_errno($ch));
+        } else {
+            $mex = 'ok! ';
+            $result = json_decode($resp);
+            foreach ($result->data as $GIF){
+                $mex += $GIF['url'];
+            }
+            $this->apiSendMessage($mex);
         }
-
-        $this->apiSendMessage($mex);
     }
 
 }
