@@ -16,7 +16,7 @@ class Bot {
 
     function executeCommand() {
         if ($this->REQUEST->text === "/start") {
-            $mex = "Salve, sono un bot!";
+            $mex = "Salve, sono GIFBot! usa il comando /search seguito dalle parole chiavi delle gif che vuoi trovare! (es. /search dicaprio)";
             $this->apiSendMessage($mex);
         } elseif ($this->REQUEST->text === "/stop") {
             $mex = "Arrivederci!";
