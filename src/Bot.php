@@ -7,11 +7,8 @@ class Bot {
     private $REQUEST;
 
     function __construct() {
-        echo 'bot init';
-        //$this->REQUEST = new Request();
-        //echo 'bot request';
-        //var_dump($this->REQUEST);
-    //        $this->apiSendMessage('Salve!');
+        $this->REQUEST = new Request();
+        $this->apiSendMessage('Salve!');
     }
 
     function apiSendMessage($text, $params = array()) {

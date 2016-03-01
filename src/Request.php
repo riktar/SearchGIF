@@ -18,9 +18,9 @@ class Request {
     function __construct() {
         echo 'qui';
         $this->update = json_decode(file_get_contents("php://input"), true);
-        /*if (!$this->update) {
+        if (!$this->update) {
             exit;
-        }*/
+        }
         
         $this->message = isset($update['message']) ? $update['message'] : "";
         $this->messageId = isset($this->message['message_id']) ? $this->message['message_id'] : "";
