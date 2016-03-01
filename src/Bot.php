@@ -11,7 +11,7 @@ class Bot {
 
     function __construct() {
         $this->REQUEST = new Request();
-        $this->sgiphyApi();
+        $this->giphyApi();
         //$this->executeCommand();
     }
 
