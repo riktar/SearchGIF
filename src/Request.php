@@ -2,6 +2,8 @@
 /**
  * Track the Telegram Mex
  */
+namespace Src;
+
 class Request {
 
     public $update;

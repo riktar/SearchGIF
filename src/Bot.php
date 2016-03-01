@@ -1,5 +1,7 @@
 <?php
 
+namespace Src;
+
 class Bot {
 
     private $REQUEST;
