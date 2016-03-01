@@ -17,7 +17,7 @@ class Bot {
 
     function executeCommand() {
         if ($this->REQUEST->text === "/start") {
-            $mex = "Salve, sono GIFBot! usa il comando /search seguito dalle parole chiavi delle gif che vuoi trovare! (es. /search dicaprio)";
+            $mex = "Salve, sono SearchGIF! usa il comando /search seguito dalle parole chiavi delle gif che vuoi trovare! (es. /search funny cat)";
             $this->apiSendMessage($mex);
         } elseif ($this->REQUEST->text === "/stop") {
             $mex = "Arrivederci!";
@@ -27,7 +27,7 @@ class Bot {
             $qs = urlencode(substr($this->REQUEST->text, 8));
             $this->giphyApi($qs);
         } else {
-            $mex = "Sono un po' stupido, ripeti il comando :)";
+            $mex = "Ehi non sono cosi intelligente! Prova a riscrivere il comando :)";
             $this->apiSendMessage($mex);
         }
     }
