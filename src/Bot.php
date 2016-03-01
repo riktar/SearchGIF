@@ -52,13 +52,13 @@ class Bot {
         if (curl_errno($ch)) {
             $this->apiSendMessage(curl_errno($ch));
         } else {
-            $mex = "Ok! <br/>";
+            $mex = "Ok! \n";
             $result = json_decode($resp);
             //var_dump($result->data);
             foreach ($result->data as $GIF){
-                $mex .= '<img src="'.$GIF->images->fixed_width->url.'"> <br/>';
+                $mex .= $GIF->url." \n\n";
             }
-            $this->apiSendMessage($mex, array('parse_mode' => 'HTML'));
+            $this->apiSendMessage($mex);
         }
     }
 
