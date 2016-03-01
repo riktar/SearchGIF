@@ -22,7 +22,7 @@ class Bot {
             $mex = "Arrivederci!";
             $this->apiSendMessage($mex);
         } elseif (strpos($this->REQUEST->text, "/search") == 0) {
-            $this->apiSendMessage("sto cercando");
+            $this->apiSendMessage("sto cercando...");
             $this->giphyApi();
         } else {
             $mex = "Sono un po' stupido, ripeti il comando :)";
