@@ -47,7 +47,7 @@ class Bot {
         $mex = trim(curl_exec($ch));
         curl_close($ch);
         
-        $this->apiSendMessage($mex);
+        $this->apiSendMessage("ok!");
     }
 
 }
