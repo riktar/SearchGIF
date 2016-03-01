@@ -42,7 +42,6 @@ class Bot {
     }
 
     function giphyApi() {
-        header("Content-Type: application/json");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=5&offset=0");
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
@@ -53,19 +52,13 @@ class Bot {
         if (curl_errno($ch)) {
             $this->apiSendMessage(curl_errno($ch));
         } else {
-            //$mex = "ok! \n";
+            $mex = "Ok! <br/>";
             $result = json_decode($resp);
             //var_dump($result->data);
-            foreach ($result->data as $GIF) {
-                $mex = $GIF->url . " \n";
-                $params += array(
-                    'chat_id' => $this->REQUEST->chatId,
-                    'text' => $mex,
-                );
-                $params["method"] = "sendMessage";
-                echo json_encode($params);
+            foreach ($result->data as $GIF){
+                $mex .= '<img src="'.$GIF->images->fixed_width->url.'"> <br/>';
             }
-            //$this->apiSendMessage($mex);
+            $this->apiSendMessage($mex, array('parse_mode' => 'HTML'));
         }
     }
 
