@@ -15,30 +15,17 @@ class Bot {
     }
 
     function executeCommand() {
-        switch ($this->REQUEST->text) {
-            case "/start":
-                $mex = "Salve, sono un bot!";
-                $this->apiSendMessage($mex);
-                break;
-            case "/stop":
-                $mex = "Arrivederci!";
-                $this->apiSendMessage($mex);
-                break;
-            case "/search":
-                $this->STATE = 1;
-                $mex = "Digita le parole chiavi delle gif";
-                $this->apiSendMessage($mex);
-                break;
-
-            default:
-                if ($this->STATE === 1) {
-                    $this->giphyApi();
-                    $this->STATE = 0;
-                } else {
-                    $mex = "Sono un po' stupido, ripeti il comando :)";
-                    $this->apiSendMessage($mex);
-                }
-                break;
+        if ($this->REQUEST->text === "/start") {
+            $mex = "Salve, sono un bot!";
+            $this->apiSendMessage($mex);
+        } elseif ($this->REQUEST->text === "/stop") {
+            $mex = "Arrivederci!";
+            $this->apiSendMessage($mex);
+        } elseif (strpos($this->REQUEST->text, "/search") == 0) {
+            $this->giphyApi();
+        } else {
+            $mex = "Sono un po' stupido, ripeti il comando :)";
+            $this->apiSendMessage($mex);
         }
     }
 
