@@ -47,6 +47,10 @@ class Bot {
         $mex = trim(curl_exec($ch));
         curl_close($ch);
         
+        if (curl_errno($ch)) {
+            $this->apiSendMessage(curl_errno($ch));
+        }
+
         $this->apiSendMessage("ok!");
     }
 
