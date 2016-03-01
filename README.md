@@ -1,3 +1,3 @@
-# Telegram Echo Bot
+# Telegram SearchGIF bot
 
-This is a sample Telegram BOT written in PHP running on Heroku
+This is a sample Telegram BOT written in PHP running on Heroku. It can search GIF on Gilphy
