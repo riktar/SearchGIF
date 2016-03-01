@@ -24,7 +24,8 @@ class Bot {
             $this->apiSendMessage($mex);
         } elseif (strpos($this->REQUEST->text, "/search") === 0) {
             //$this->apiSendMessage("sto cercando...");
-            $this->giphyApi();
+            $qs = urlencode(substr($this->REQUEST->text, 8));
+            $this->giphyApi($qs);
         } else {
             $mex = "Sono un po' stupido, ripeti il comando :)";
             $this->apiSendMessage($mex);
@@ -41,9 +42,9 @@ class Bot {
         echo json_encode($params);
     }
 
-    function giphyApi() {
+    function giphyApi($qs) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/random?tag=funny+cat&api_key=dc6zaTOxFJmzC");
+        curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/random?tag=$qs&api_key=dc6zaTOxFJmzC");
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $resp = trim(curl_exec($ch));
@@ -52,7 +53,7 @@ class Bot {
         if (curl_errno($ch)) {
             $this->apiSendMessage(curl_errno($ch));
         } else {
-            $mex = "Ok! \n";
+            $mex = "";
             $result = json_decode($resp);
             //var_dump($result->data);
             $mex .= $result->data->url . " \n\n";
