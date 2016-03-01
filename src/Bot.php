@@ -56,7 +56,11 @@ class Bot {
             $mex = "";
             $result = json_decode($resp);
             //var_dump($result->data);
-            $mex .= $result->data->url . " \n\n";
+            if ($result->data->url) {
+                $mex .= $result->data->url . " \n\n";
+            } else {
+                $mex = 'Nessuna GIF trovata con quel criterio di ricerca :( Prova con altre parole chiavi!';
+            }
             $this->apiSendMessage($mex);
         }
     }
