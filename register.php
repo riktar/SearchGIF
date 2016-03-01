@@ -1,8 +1,8 @@
 <?php
 
 // PARAMETRI DA MODIFICARE
-$WEBHOOK_URL = 'https://provarikbot.herokuapp.com/execute.php';
-$BOT_TOKEN = '161245058:AAGFsxRNURmEbwpOONc4_89NeNfrlPHwR0I';
+$WEBHOOK_URL = 'https://searchgif.herokuapp.com/execute.php';
+$BOT_TOKEN = '207941465:AAHYwY9Ql4DlZNAQIuHrIbG8YQs1Aelv4qU';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
 $API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
