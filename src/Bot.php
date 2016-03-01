@@ -42,7 +42,7 @@ class Bot {
 
     function giphyApi() {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC");
+        curl_setopt($ch, CURLOPT_URL, "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=5&offset=0");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $mex = trim(curl_exec($ch));
         curl_close($ch);
@@ -51,7 +51,7 @@ class Bot {
             $this->apiSendMessage(curl_errno($ch));
         }
 
-        $this->apiSendMessage("ok!");
+        $this->apiSendMessage($mex);
     }
 
 }
