@@ -6,6 +6,7 @@ class Bot {
 
     function __construct() {
         $this->REQUEST = new Request();
+        var_dump($this->REQUEST);
         $this->apiSendMessage('Salve!');
     }
 
