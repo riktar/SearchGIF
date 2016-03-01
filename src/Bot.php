@@ -10,7 +10,7 @@ class Bot {
     private $STATE = 0;
 
     function __construct() {
-        $this->REQUEST = new Request();
+        //$this->REQUEST = new Request();
         $this->giphyApi();
         //$this->executeCommand();
     }
