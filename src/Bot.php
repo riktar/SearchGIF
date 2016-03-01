@@ -10,6 +10,7 @@ class Bot {
 
     function __construct() {
         $this->REQUEST = new Request();
+        $this->executeCommand();
     }
 
     function executeCommand() {
