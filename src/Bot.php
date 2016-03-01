@@ -1,14 +1,31 @@
 <?php
+
 /*
  * Init a Bot
  */
+
 class Bot {
 
     private $REQUEST;
 
     function __construct() {
         $this->REQUEST = new Request();
-        $this->apiSendMessage('Salve!');
+    }
+
+    function executeCommand() {
+        switch ($this->REQUEST->text) {
+            case "/start":
+                $mex = "Salve, sono un bot!";
+                $this->apiSendMessage($mex);
+                break;
+            case "/stop":
+                $mex = "Arrivederci!";
+                $this->apiSendMessage($mex);
+                break;
+
+            default:
+                break;
+        }
     }
 
     function apiSendMessage($text, $params = array()) {
