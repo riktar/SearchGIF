@@ -16,7 +16,6 @@ class Request {
     public $text;
 
     function __construct() {
-        echo 'qui';
         $this->update = json_decode(file_get_contents("php://input"), true);
         if (!$this->update) {
             exit;
