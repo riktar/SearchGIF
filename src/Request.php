@@ -21,7 +21,7 @@ class Request {
             exit;
         }
         
-        $this->message = isset($update['message']) ? $update['message'] : "";
+        $this->message = isset($this->update['message']) ? $this->update['message'] : "";
         $this->messageId = isset($this->message['message_id']) ? $this->message['message_id'] : "";
         $this->chatId = isset($this->message['chat']['id']) ? $this->message['chat']['id'] : "";
         $this->senderId = isset($this->message['chat']['id']) ? $this->message['chat']['id'] : "";
